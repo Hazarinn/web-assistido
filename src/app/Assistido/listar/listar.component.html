@@ -1,0 +1,57 @@
+<div>
+
+</div>
+<button mat-mini-fab color="primary" class="mb-2"  >
+    <mat-icon>plus_one</mat-icon>
+</button>
+<table  mat-table [dataSource]="assistidos" class="mat-elevation-z8"> 
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let assistido"> {{assistido.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let assistido"> {{assistido.nome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cpfCnpj">
+        <th mat-header-cell *matHeaderCellDef> Cpf Cnpj </th>
+        <td mat-cell *matCellDef="let assistido"> {{assistido.cpfCnpj}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="logradouro">
+        <th mat-header-cell *matHeaderCellDef> Logradouro </th>
+        <td mat-cell *matCellDef="let assistido"> {{assistido.logradouro}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cep">
+        <th mat-header-cell *matHeaderCellDef> Cep </th>
+        <td mat-cell *matCellDef="let assistido"> {{assistido.cep}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bairro">
+        <th mat-header-cell *matHeaderCellDef> Bairro </th>
+        <td mat-cell *matCellDef="let assistido"> {{assistido.bairro}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cidade">
+        <th mat-header-cell *matHeaderCellDef> Cidade </th>
+        <td mat-cell *matCellDef="let assistido"> {{assistido.cidade}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <div>
+            <td mat-cell *matCellDef="let produto"><button  mat-mini-fab color="acent" >
+                <mat-icon>edit</mat-icon>
+              </button> <button  mat-mini-fab color="primary" (click)="abrirModalConfirmacaoExclusao(produto)">
+                <mat-icon>delete</mat-icon>
+              </button> </td>
+             
+        </div>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="colunasTabela"></tr>
+    <tr mat-row *matRowDef="let row; columns: colunasTabela;"></tr>
+</table>
